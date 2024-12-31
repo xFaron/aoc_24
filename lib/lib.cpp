@@ -112,6 +112,38 @@ public:
 	}
 };
 
+class Graph {
+private:
+	vector<Graph *> edges;
+
+public:
+
+	void append(Graph& node) {
+		edges.push_back(&node);
+	}
+
+	Graph* pop() {
+		Graph* last = edges.back();
+		edges.pop_back();
+		return last;
+	}
+
+	vector<Graph *>::iterator begin() {
+		return edges.begin();
+	}
+
+	vector<Graph *>::iterator end() {
+		return edges.end();
+	}
+
+	Graph* operator[] (int index) {
+		if (index < 0 || index >= edges.size()) {
+			throw out_of_range("Index out of range");
+		}
+		return edges[index];
+	} 
+};
+
 vector<vector<char>>& getInput(const string filename, vector<vector<char>>& matrix) {
 	ifstream inFile(filename);
 

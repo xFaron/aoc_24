@@ -45,6 +45,18 @@ public:
     friend std::ostream& operator<< (std::ostream& outStream, const Map& map);
 };
 
+class Graph {
+private:
+    std::vector<Graph *> edges;
+
+public:
+    void append(Graph& node);
+    Graph* pop();
+    std::vector<Graph *>::iterator begin();
+    std::vector<Graph *>::iterator end();
+    Graph* operator[] (int index);
+};
+
 std::vector<std::vector<char>>& getInput(const std::string filename, std::vector<std::vector<char>>& matrix);
 
 #endif // LIB_H
