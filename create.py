@@ -26,7 +26,6 @@ try:
         if not os.path.exists(path) or clear == "Yes":
             with open(path, "w") as f:
                 print(f"> Created file {path}")
-                f.write("#include <iostream>\n\nint main() {\n\n\treturn 0;\n}")
         else:
             print(f"> File {path} already exists")
 
